@@ -40,6 +40,7 @@ output "public_certificate_common_name" {
 }
 output "private_key_pem" {
   value = var.enable_acme_certificate ? "${acme_certificate.certificate[0].private_key_pem}" : null
+  sensitive = true
 }
 output "certificate_pem" {
   value = var.enable_acme_certificate ? "${acme_certificate.certificate[0].certificate_pem}${acme_certificate.certificate[0].issuer_pem}" : null
