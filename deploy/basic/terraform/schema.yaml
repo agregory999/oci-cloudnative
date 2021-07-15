@@ -498,6 +498,8 @@ variables:
     visible:
       and:
         - show_advanced
+        - not:
+          - use_only_always_free_eligible_resources
 
   dns_zone_name:
     type: string
@@ -507,7 +509,6 @@ variables:
     default: "mushop.example.com"
     visible: 
       and:
-        - show_advanced
         - enable_dns_zone
  
   enable_acme_certificate:
@@ -526,9 +527,8 @@ variables:
     pattern: "^(?:(?!.*?[.]{2})[a-zA-Z0-9](?:[a-zA-Z0-9.+!%-]{1,64}|)|\"[a-zA-Z0-9.+!% -]{1,64}\")@[a-zA-Z0-9][a-zA-Z0-9.-]+(.[a-z]{2,}|.[0-9]{1,})$"
     visible: 
       and:
-        - show_advanced
-        - enable_dns_zone
         - enable_acme_certificate
+        
   acme_server_url:
     type: enum
     enum:
@@ -538,8 +538,6 @@ variables:
     description: "Choose Staging or Production for Lets Encrypt certificate generation"
     visible: 
       and:
-        - show_advanced
-        - enable_dns_zone
         - enable_acme_certificate
 
   dns_lb_entry:
@@ -548,7 +546,6 @@ variables:
     description: "DNS record name.  This will be prepended to the DNS Zone name and give the resolvable address for the Load Balancer"
     visible: 
       and:
-        - show_advanced
         - enable_dns_zone
 
   enable_waf:
@@ -567,8 +564,6 @@ variables:
     description: "DNS record name.  This will be prepended to the DNS Zone name and give the resolvable address for the WAF URL - ie what users will hit."
     visible: 
       and:
-        - show_advanced
-        - enable_dns_zone
         - enable_waf
   
   enable_captcha_challenge:
@@ -577,8 +572,6 @@ variables:
     description: "Whether to configure WAF with a challenge on the product pages"
     visible: 
       and:
-        - show_advanced
-        - enable_dns_zone
         - enable_waf
 
   waas_policy_waf_config_captchas_failure_message:
@@ -586,9 +579,6 @@ variables:
     title: "Failure message for CAPTCHA"
     visible:
       and:
-        - show_advanced
-        - enable_dns_zone
-        - enable_waf
         - enable_captcha_challenge
 
   waas_policy_waf_config_captchas_session_expiration_in_seconds:
@@ -596,9 +586,6 @@ variables:
     title: "Session expiration for CAPTCHA"
     visible:
       and:
-        - show_advanced
-        - enable_dns_zone
-        - enable_waf
         - enable_captcha_challenge
 
   waas_policy_waf_config_captchas_submit_label:
@@ -606,9 +593,6 @@ variables:
     title: "Button label for CAPTCHA"
     visible:
       and:
-        - show_advanced
-        - enable_dns_zone
-        - enable_waf
         - enable_captcha_challenge
 
   waas_policy_waf_config_captchas_title:
@@ -616,9 +600,6 @@ variables:
     title: "Title for CAPTCHA"
     visible:
       and:
-        - show_advanced
-        - enable_dns_zone
-        - enable_waf
         - enable_captcha_challenge
 
   waas_policy_waf_config_captchas_url:
@@ -626,9 +607,6 @@ variables:
     title: "URL for CAPTCHA"
     visible:
       and:
-        - show_advanced
-        - enable_dns_zone
-        - enable_waf
         - enable_captcha_challenge
 
   waas_policy_waf_config_captchas_footer_text:
@@ -636,9 +614,6 @@ variables:
     title: "Footer message for CAPTCHA"
     visible:
       and:
-        - show_advanced
-        - enable_dns_zone
-        - enable_waf
         - enable_captcha_challenge
 
   waas_policy_waf_config_captchas_header_text:
@@ -646,9 +621,6 @@ variables:
     title: "Header message for CAPTCHA"
     visible:
       and:
-        - show_advanced
-        - enable_dns_zone
-        - enable_waf
         - enable_captcha_challenge
   
 outputGroups:
