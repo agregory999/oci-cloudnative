@@ -50,7 +50,7 @@ provider "oci" {
 
   user_ocid        = var.user_ocid
   fingerprint      = var.fingerprint
-  private_key_path = var.private_key_path
+  private_key = var.private_key
 }
 
 provider "oci" {
@@ -60,7 +60,7 @@ provider "oci" {
 
   user_ocid        = var.user_ocid
   fingerprint      = var.fingerprint
-  private_key_path = var.private_key_path
+  private_key = var.private_key
 }
 
 # New configuration to avoid Terraform Kubernetes provider interpolation. https://registry.terraform.io/providers/hashicorp/kubernetes/2.2.0/docs#stacking-with-managed-kubernetes-cluster-resources

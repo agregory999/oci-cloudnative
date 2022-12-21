@@ -165,7 +165,7 @@ variable "user_ocid" {
 variable "fingerprint" {
   default = ""
 }
-variable "private_key_path" {
+variable "private_key" {
   default = ""
 }
 
