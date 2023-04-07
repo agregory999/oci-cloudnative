@@ -230,6 +230,9 @@ resource "oci_identity_user" "oci_service_user" {
 
   provider = oci.home_region
 
+  # Email required for Identity domain
+  email = var.newsletter_email_sender
+  
   count = var.create_oci_service_user ? 1 : 0
 }
 resource "oci_identity_group" "oci_service_user" {
